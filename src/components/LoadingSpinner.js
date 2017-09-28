@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     View,
@@ -20,7 +21,7 @@ const style = StyleSheet.create({
     }
 });
 
-export default class LoadingSpinner extends Component {
+class LoadingSpinner extends Component {
 
     static propTypes = {
         visible: React.PropTypes.bool.isRequired,
@@ -35,3 +36,8 @@ export default class LoadingSpinner extends Component {
         )
     }
 }
+LoadingSpinner.propTypes = {
+  visible: PropTypes.bool.isRequired,
+};
+
+export default LoadingSpinner;

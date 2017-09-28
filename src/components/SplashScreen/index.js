@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Dimensions,
   StyleSheet,
@@ -16,14 +17,10 @@ const style = StyleSheet.create({
     backgroundColor: '#fff'
   }
 });
-const {width, height} = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 const bg = require('../../assets/splash.jpg');
 
-export default class SplashScreen extends Component {
-  static propTypes = {
-    loaded: React.PropTypes.bool.isRequired
-  };
-
+class SplashScreen extends Component {
   state = { opacity: new Animated.Value(1) };
 
   componentWillReceiveProps(newProps) {
@@ -41,11 +38,16 @@ export default class SplashScreen extends Component {
         pointerEvents={loaded ? 'none' : 'auto'}
       >
         <Image
-            style={{width, height }}
-            source={bg}
-            resizeMode="cover"
-            />
+          style={{ width, height }}
+          source={bg}
+          resizeMode="cover"
+        />
       </Animated.View>
     );
   }
 }
+SplashScreen.propTypes = {
+  loaded: PropTypes.bool.isRequired
+};
+
+export default SplashScreen;

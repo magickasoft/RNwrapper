@@ -1,9 +1,9 @@
 'use strict';
 
 import React, { Component } from 'react';
-import {
-    NetInfo,
-} from 'react-native';
+// import {
+//     NetInfo,
+// } from 'react-native';
 import {
     Provider
 } from 'react-redux';
@@ -28,17 +28,17 @@ class wrapper extends React.Component {
     }
     componentWillUnmount() {
 
-        NetInfo.removeEventListener(
-            'change',
-            this._handleConnectionInfoChange
-        );
+        // NetInfo.removeEventListener(
+        //     'change',
+        //     this._handleConnectionInfoChange
+        // );
     }
     componentDidMount() {
 
-        NetInfo.addEventListener(
-            'change',
-            this._handleConnectionInfoChange
-        );
+        // NetInfo.addEventListener(
+        //     'change',
+        //     this._handleConnectionInfoChange
+        // );
     }
     render() {
         return (

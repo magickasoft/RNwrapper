@@ -1,7 +1,8 @@
 /**
  * Created by user on 16.06.16.
  */
-import React from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import {
   Image,
   StyleSheet
@@ -17,15 +18,7 @@ const style = StyleSheet.create({
   }
 });
 
-export default class IconBack extends React.Component {
-
-  static propTypes = {
-    icon: React.PropTypes.oneOf([
-      'back',
-      'forward'
-    ]).isRequired
-  };
-
+class IconBack extends Component {
   render() {
     let { icon } = this.props;
     switch (icon) {
@@ -47,3 +40,11 @@ export default class IconBack extends React.Component {
     );
   }
 }
+IconBack.propTypes = {
+  icon: PropTypes.oneOf([
+    'back',
+    'forward'
+  ]).isRequired
+};
+
+export default IconBack;

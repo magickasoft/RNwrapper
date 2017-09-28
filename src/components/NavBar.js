@@ -21,7 +21,7 @@ import {
   StyleSheet
 } from 'react-native';
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types';
 
 const Style = StyleSheet.create({
   container: {
@@ -59,26 +59,7 @@ const Style = StyleSheet.create({
   }
 });
 
-export default class NavBar extends Component {
-
-  static propTypes = {
-    center: React.PropTypes.any,
-    left: React.PropTypes.any,
-    right: React.PropTypes.any,
-    onLeftClick: React.PropTypes.any,
-    onRightClick: React.PropTypes.any,
-    customStyle: React.PropTypes.object
-  };
-
-  static defaultProps = {
-    center: null,
-    left: null,
-    right: null,
-    onLeftClick: null,
-    onRightClick: null,
-    customStyle: {}
-  };
-
+class NavBar extends Component {
   style(styleName) {
     const { customStyle } = this.props;
     return [Style[styleName], customStyle && customStyle[styleName]];
@@ -144,5 +125,21 @@ export default class NavBar extends Component {
       </View>
     );
   }
-
 }
+NavBar.propTypes = {
+  center: PropTypes.any,
+  left: PropTypes.any,
+  right: PropTypes.any,
+  onLeftClick: PropTypes.any,
+  onRightClick: PropTypes.any,
+  customStyle: PropTypes.object
+};
+NavBar.defaultProps = {
+  center: null,
+  left: null,
+  right: null,
+  onLeftClick: null,
+  onRightClick: null,
+  customStyle: {}
+};
+export default NavBar;
